@@ -51,7 +51,7 @@ jobs:
     
     packages:
         needs: [build-app, build-api]
-        runs-on: macro-latest
+        runs-on: macos-latest
         steps:
             - run: echo "Hellow macro"
 
