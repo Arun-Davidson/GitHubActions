@@ -1,0 +1,64 @@
+# This is a basic work flow to help you get start withActions
+
+name: A Basic Workflow will run
+
+# Controls when the workfllow will run
+on:
+    # Trigger the workflow on push or pull request event but only for the 'Main' branch
+    push:
+        branches: ['main']
+    
+    pull_request:
+        branches: ['main']
+
+    
+    # Allow you to run this workflow manually from the action tab
+    workflow_dispatch:
+
+
+# A workflow run is made up of one or more jobs that ca sequesntially or in partially
+jobs:
+    # Thiw workfow contain a single jobs call 'build'
+    build-app:
+        # The type of runner that the job will run on
+        runs-on: ubuntu-latest
+
+        # Steps represents a sequesnce of tasks that will be excecuted ass part of the job
+        steps:
+            # Checkoout your repository under $GITHUB_WORKSPACE, so your jobb can access it 
+            - uses: actions/checkout@v3
+
+
+            # Run a single commant using a runners shell
+            - name: Run a one-line script
+              run: echo Hello World!
+
+            # Run a set of commant using runners shell
+            - name: Run a multi-line sccript
+              run: |
+                echo Add anothor action to build,
+                eccho test, and deploy your project.
+        
+    build-api:
+        runs-on: windows-latest
+        steps:
+            - run: echo build api
+    
+    build-db:
+        needs: build-app
+        runs-on: windows-latest
+        steps:
+            - run: echo hallo window
+    
+    packages:
+        needs: [build-app, build-api]
+        runs-on: macro-latest
+        steps:
+            - run: echo "Hellow macro"
+
+
+
+
+
+
+
