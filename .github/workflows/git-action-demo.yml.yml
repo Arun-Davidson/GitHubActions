@@ -36,7 +36,7 @@ jobs:
             - name: Run a multi-line sccript
               run: |
                 echo Add anothor action to build,
-                eccho test, and deploy your project.
+                echo test, and deploy your project.
         
     build-api:
         runs-on: windows-latest
