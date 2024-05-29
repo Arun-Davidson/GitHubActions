@@ -1,0 +1,51 @@
+# This is a basic work flow to help you get start withActions
+
+name: A Basic Workflow will run
+
+# Controls when the workfllow will run
+on:
+    # Trigger the workflow on push or pull request event but only for the 'Main' branch
+    push:
+        branches: ['main']
+    
+    pull_request:
+        branches: ['main']
+
+    # Allow you to run this workflow manually from the action tab
+    workflow_dispatch:
+
+env:
+    DAY_OF_WEEK: funday
+    testvar: value-1
+
+
+# A workflow run is made up of one or more jobs that ca sequesntially or in partially
+jobs:
+    
+    mainjob:
+        # The type of runner that the job will run on
+        name: 'Print the env vars'
+        runs-on: ubuntu-latest
+
+        env: 
+            Greeting: Dear
+            testvar: value-2
+            
+
+        # Steps represents a sequesnce of tasks that will be excecuted ass part of the job
+        steps:
+        -   name: print-values-of-env-vars
+            run: |
+                "echo $Greeting $First_Name. Today is $DAY_OF_WEEK"
+                "echo testvar" $testvar
+                "echo ${{ env.testvar }}"
+            env:
+                First_Name: Student
+                testvar:
+
+
+
+
+
+
+
