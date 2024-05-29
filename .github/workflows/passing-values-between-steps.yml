@@ -9,7 +9,7 @@ jobs:
         steps:
             -   name: set the value using ENV vars
                 run: |
-                    echo: "variableName=this-is-value" >> $GITHUB_ENV
+                    echo "variableName=test-variable-name" >> $GITHUB_ENV
             
             -   name: Create variable
                 id: var_source_step
