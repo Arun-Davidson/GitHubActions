@@ -41,7 +41,7 @@ jobs:
                 "echo ${{ env.testvar }}"
             env:
                 First_Name: Student
-                testvar:
+                testvar: value-3
 
 
 
