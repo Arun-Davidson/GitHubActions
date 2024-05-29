@@ -32,3 +32,5 @@ jobs:
           echo "$GITHUB_API_JOBS"
           echo "$GITHUB_RUN_NUMBER"
           echo "$GITHUB_STATE"
+          echo "$GITHUB_REPOSITORY_OWNER"
+
